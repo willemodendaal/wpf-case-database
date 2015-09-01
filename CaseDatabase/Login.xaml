@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="CaseDatabase.Login"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CaseDatabase"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="800">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="loginBorder" Color="#ddd" Opacity="0.8"></SolidColorBrush>
+        <SolidColorBrush x:Key="loginBackground" Color="#ddd" Opacity="0.3"></SolidColorBrush>
+        
+        <Style x:Key="formElements">
+            <Setter Property="Control.Margin" Value="4"></Setter>
+            <Setter Property="Control.Height" Value="23"></Setter>
+        </Style>
+
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource formElements}" >
+        </Style>
+
+        <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource formElements}">
+        </Style>
+
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource formElements}">
+            <Setter Property="Height" Value="40"></Setter>
+
+        </Style>
+    </UserControl.Resources>
+
+    <Border 
+        BorderBrush="{StaticResource loginBorder}" 
+        Background="{StaticResource loginBackground}"
+        BorderThickness="1"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        CornerRadius="5"
+        Padding="10"
+        Width="280">
+
+        <StackPanel>
+            <Image x:Name="image" Height="100" Source="Static/logo.png" />
+            <TextBox x:Name="agentId"  />
+            <PasswordBox x:Name="password" />
+            <Button  x:Name="login" Content="Login" Click="login_Click"/>
+        </StackPanel>
+    </Border>
+</UserControl>

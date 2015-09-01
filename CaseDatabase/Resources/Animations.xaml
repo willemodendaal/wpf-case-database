@@ -1,0 +1,49 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:CaseDatabase.Resources"
+                    xmlns:conv="clr-namespace:CaseDatabase.ValueConverters">
+
+    <conv:Negate  x:Key="NegateDouble"/>
+
+    <CubicEase x:Key="EaseOut" EasingMode="EaseOut" />
+    
+    <Storyboard x:Key="SlideFromRightAnimation">
+        <DoubleAnimation 
+            Storyboard.TargetProperty="(Canvas.Left)"
+            Duration="0:0:0.5"
+            From="{Binding ElementName=Window, Path=ActualWidth}"
+            To="0"
+            EasingFunction="{StaticResource EaseOut}">
+        </DoubleAnimation>
+    </Storyboard>
+
+    <Storyboard x:Key="SlideToRightAnimation">
+        <DoubleAnimation 
+            Storyboard.TargetProperty="(Canvas.Left)"
+            Duration="0:0:0.5"
+            From="0"
+            To="{Binding ElementName=Window, Path=ActualWidth}"
+            EasingFunction="{StaticResource EaseOut}">
+        </DoubleAnimation>
+    </Storyboard>
+
+    <Storyboard x:Key="SlideFromLeftAnimation">
+        <DoubleAnimation 
+            Storyboard.TargetProperty="(Canvas.Left)"
+            Duration="0:0:0.5"
+            From="{Binding ElementName=Window, Path=ActualWidth, Converter={StaticResource NegateDouble}}"
+            To="0"
+            EasingFunction="{StaticResource EaseOut}">
+        </DoubleAnimation>
+    </Storyboard>
+
+    <Storyboard x:Key="SlideToLeftAnimation">
+        <DoubleAnimation 
+            Storyboard.TargetProperty="(Canvas.Left)"
+            Duration="0:0:0.5"
+            From="0"
+            To="{Binding ElementName=Window, Path=ActualWidth, Converter={StaticResource NegateDouble}}"
+            EasingFunction="{StaticResource EaseOut}">
+        </DoubleAnimation>
+    </Storyboard>
+</ResourceDictionary>
