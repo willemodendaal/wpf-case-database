@@ -7,24 +7,37 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="800">
     <UserControl.Resources>
-        <SolidColorBrush x:Key="loginBorder" Color="#ddd" Opacity="0.8"></SolidColorBrush>
-        <SolidColorBrush x:Key="loginBackground" Color="#ddd" Opacity="0.3"></SolidColorBrush>
-        
-        <Style x:Key="formElements">
-            <Setter Property="Control.Margin" Value="4"></Setter>
-            <Setter Property="Control.Height" Value="23"></Setter>
-        </Style>
 
-        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource formElements}" >
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Animations.xaml" />
+                <ResourceDictionary Source="Resources/GlobalStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <SolidColorBrush x:Key="loginBorder" Color="#ddd" Opacity="0.8"></SolidColorBrush>
+            <SolidColorBrush x:Key="loginBackground" Color="#ddd" Opacity="0.3"></SolidColorBrush>
 
-        <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource formElements}">
-        </Style>
+            <Style x:Key="formElements">
+                <Setter Property="Control.Margin" Value="4"></Setter>
+                <Setter Property="Control.Height" Value="23"></Setter>
+            </Style>
 
-        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource formElements}">
-            <Setter Property="Height" Value="40"></Setter>
+            <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource formElements}" >
+            </Style>
 
-        </Style>
+            <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource formElements}">
+            </Style>
+
+            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BlueButton}" >
+                <Setter Property="Button.Height" Value="30"></Setter>
+            </Style>
+
+            <Style TargetType="{x:Type Label}" BasedOn="{StaticResource formElements}" >
+                <Setter Property="Label.Foreground" Value="White"></Setter>
+                <Setter Property="Label.FontWeight" Value="Bold"></Setter>
+                <Setter Property="Label.Height" Value="26"></Setter>
+                <Setter Property="Label.FontSize" Value="14"></Setter>
+            </Style>
+        </ResourceDictionary>
     </UserControl.Resources>
 
     <Border 
@@ -39,9 +52,11 @@
 
         <StackPanel>
             <Image x:Name="image" Height="100" Source="Static/logo.png" />
+            <Label>Agent ID:</Label>
             <TextBox x:Name="agentId"  />
+            <Label>Password:</Label>
             <PasswordBox x:Name="password" />
-            <Button  x:Name="login" Content="Login" Click="login_Click"/>
+            <Button x:Name="login" Margin="4,10,4,4" Content="Login" Click="login_Click"/>
         </StackPanel>
     </Border>
 </UserControl>
