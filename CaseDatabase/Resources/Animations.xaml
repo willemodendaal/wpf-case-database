@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:CaseDatabase.Resources"
                     xmlns:conv="clr-namespace:CaseDatabase.ValueConverters">
 
     <conv:Negate  x:Key="NegateDouble"/>
@@ -45,5 +44,37 @@
             To="{Binding ElementName=Window, Path=ActualWidth, Converter={StaticResource NegateDouble}}"
             EasingFunction="{StaticResource EaseOut}">
         </DoubleAnimation>
+    </Storyboard>
+
+    <Storyboard x:Key="flashInAndHide">
+        <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetProperty="Opacity"
+                Duration="0:0:2.5">
+
+            <!-- Flash three times, wait, then fade-out -->
+            <LinearDoubleKeyFrame Value="0"   KeyTime="0:0:0.1"></LinearDoubleKeyFrame>
+            <LinearDoubleKeyFrame Value="1"   KeyTime="0:0:0.2"></LinearDoubleKeyFrame>
+            <LinearDoubleKeyFrame Value="0.7" KeyTime="0:0:0.4"></LinearDoubleKeyFrame>
+            <LinearDoubleKeyFrame Value="1"   KeyTime="0:0:0.6"></LinearDoubleKeyFrame>
+            <LinearDoubleKeyFrame Value="0.7" KeyTime="0:0:0.8"></LinearDoubleKeyFrame>
+            <LinearDoubleKeyFrame Value="1"   KeyTime="0:0:1"></LinearDoubleKeyFrame>
+            <LinearDoubleKeyFrame Value="1"   KeyTime="0:0:2"></LinearDoubleKeyFrame>
+            <LinearDoubleKeyFrame Value="0"   KeyTime="0:0:2.5"></LinearDoubleKeyFrame>
+
+        </DoubleAnimationUsingKeyFrames>
+    </Storyboard>
+
+    <Storyboard x:Key="fadeInAndHide">
+        <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetProperty="Opacity"
+                Duration="0:0:2">
+
+            <!-- Fade-in, wait, and then fade-out -->
+            <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0.1"></LinearDoubleKeyFrame>
+            <LinearDoubleKeyFrame Value="1" KeyTime="0:0:0.3"></LinearDoubleKeyFrame>
+            <LinearDoubleKeyFrame Value="1" KeyTime="0:0:1.7"></LinearDoubleKeyFrame>
+            <LinearDoubleKeyFrame Value="0" KeyTime="0:0:2"></LinearDoubleKeyFrame>
+
+        </DoubleAnimationUsingKeyFrames>
     </Storyboard>
 </ResourceDictionary>

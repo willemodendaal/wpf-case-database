@@ -40,7 +40,8 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Border 
+    <Grid>
+        <Border 
         BorderBrush="{StaticResource loginBorder}" 
         Background="{StaticResource loginBackground}"
         BorderThickness="1"
@@ -50,13 +51,19 @@
         Padding="10"
         Width="280">
 
-        <StackPanel>
-            <Image x:Name="image" Height="100" Source="Static/logo.png" />
-            <Label>Agent ID:</Label>
-            <TextBox x:Name="agentId"  />
-            <Label>Password:</Label>
-            <PasswordBox x:Name="password" />
-            <Button x:Name="login" Margin="4,10,4,4" Content="Login" Click="login_Click"/>
-        </StackPanel>
-    </Border>
+            <StackPanel>
+                <Image x:Name="image" Height="100" Source="Static/logo.png" />
+                <Label>Agent ID:</Label>
+                <TextBox x:Name="agentId" Text="{Binding AgentId}" />
+                <Label>Password:</Label>
+                <PasswordBox x:Name="password" /> <!-- Not bound to model for security reasons.  -->
+                <Button x:Name="login" Margin="4,10,4,4" Content="Login" Click="login_Click"/>
+            </StackPanel>
+        </Border>
+        
+        <!-- Success/error that will be animated in -->
+        <local:InfoPopup x:Name="infoPopup" Opacity="0" Text="Access Granted" />
+    </Grid>
+    
+
 </UserControl>

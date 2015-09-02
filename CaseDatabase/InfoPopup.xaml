@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="CaseDatabase.InfoPopup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CaseDatabase"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="300"
+             x:Name="root">
+    <UserControl.Resources>
+
+        
+
+        <Style x:Key="successStyle" TargetType="{x:Type Border}">
+            <Setter Property="Border.BorderBrush" Value="#FFdddddd"></Setter>
+            <Setter Property="Border.Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#993C8EFF" Offset="0"/>
+                        <GradientStop Color="#FF3C8EFF" Offset=".2"/>
+                        <GradientStop Color="#FF3C8EFF" Offset=".8"/>
+                        <GradientStop Color="#993C8EFF" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="errorStyle" TargetType="{x:Type Border}">
+            <Setter Property="Border.BorderBrush" Value="#FF3A0F0F"></Setter>
+            <Setter Property="Border.Background" Value="#FF6C2A2A"></Setter>
+        </Style>
+
+    </UserControl.Resources>
+
+    <Border
+        x:Name="border"
+        CornerRadius="5"
+        BorderThickness="1"
+        Padding="150,20"
+        Width="Auto"
+        Height="Auto"
+        VerticalAlignment="Center"
+        HorizontalAlignment="Center">
+
+        <Label 
+            VerticalAlignment="Center" 
+            HorizontalAlignment="Center"
+            FontSize="20"
+            Height="40"
+            Content="{Binding Text, ElementName=root}"></Label>
+    </Border>
+</UserControl>
