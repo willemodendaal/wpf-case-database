@@ -6,9 +6,24 @@
              xmlns:local="clr-namespace:CaseDatabase"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <StackPanel>
-        <Button x:Name="button" Content="Case view" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top"/>
-        <Button x:Name="back" Content="Back" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Click="back_Click"/>
-    </StackPanel>
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Label.Foreground" Value="White"></Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Border 
+        Margin="10"
+        Background="#77000000">
+        <DockPanel>
+            <Button DockPanel.Dock="Top" x:Name="back" Content="&lt; Back" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Click="back_Click"/>
+            <Border DockPanel.Dock="Left" BorderThickness="1" BorderBrush="#ddd">
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">[Suspects here]</Label>
+            </Border>
+            <Border BorderThickness="1" BorderBrush="#ddd">
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">[Case info here]</Label>
+            </Border>
+        </DockPanel>
+    </Border>
 
 </UserControl>

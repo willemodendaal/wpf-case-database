@@ -34,8 +34,8 @@ namespace CaseDatabase
         {
             //Fetch password directly from view. Not according to MVC, but needed because password
             //  is  secure string and we don't want it hanging around in memory.
-            //The only correct password in this demo is 'password'.
-            if (password.Password == "password")
+            //Any password (except "") is accepted in this demo.
+            if ( !string.IsNullOrWhiteSpace(password.Password))
             {
                 await OnSuccess();
             }

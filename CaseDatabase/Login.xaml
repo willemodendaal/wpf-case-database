@@ -34,7 +34,7 @@
             <Style TargetType="{x:Type Label}" BasedOn="{StaticResource formElements}" >
                 <Setter Property="Label.Foreground" Value="White"></Setter>
                 <Setter Property="Label.FontWeight" Value="Bold"></Setter>
-                <Setter Property="Label.Height" Value="26"></Setter>
+                <Setter Property="Label.Height" Value="29"></Setter>
                 <Setter Property="Label.FontSize" Value="14"></Setter>
             </Style>
         </ResourceDictionary>
