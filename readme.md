@@ -2,7 +2,8 @@
 
 A WPF sample project that demonstrates some common WPF features:
 - Using app resources (from external xaml files).
-- Using Styles.
+- Using styles.
+- Custom button template styling.
 - Doing animations using storyboards and easing functions.
 - Custom user controls with events.
 - Using custom value converters.
